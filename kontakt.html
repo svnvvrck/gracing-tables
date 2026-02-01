@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anfrage – Grazing Tables Saar</title>
+  <meta name="description" content="Unverbindliche Anfrage für Grazing Tables – Datum, Ort, Personenzahl und Anlass senden. Lieferung im ganzen Saarland." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img class="brand-logo" src="assets/img/logo_tranparent.png" alt="Grazing Tables Saar Logo" />
+        <span class="brand-name">Grazing Tables Saar</span>
+      </a>
+
+      <nav class="nav" aria-label="Hauptnavigation">
+        <button class="nav-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-list" id="navList">
+          <li><a href="index.html" class="nav-link">Start</a></li>
+          <li><a href="angebot.html" class="nav-link">Angebot</a></li>
+          <li><a href="anlaesse.html" class="nav-link">Anlässe</a></li>
+          <li><a href="kontakt.html" class="nav-link is-active">Anfrage</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="icon-link" href="https://www.instagram.com/grazing_tables_saar/" target="_blank" rel="noopener" aria-label="Instagram öffnen">
+          <img src="assets/img/insta.svg" alt="" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container">
+      <header class="section-header">
+        <h1>Unverbindlich anfragen</h1>
+        <p class="muted">
+          Sende uns kurz die Eckdaten – wir melden uns mit einem passenden Vorschlag zurück.
+          E-Mail: <a class="underline" href="mailto:info@grazing-tables-saar.de">info@grazing-tables-saar.de</a>
+        </p>
+      </header>
+
+      <div class="contact-grid">
+        <form id="anfrageForm" class="form contact-card reveal">
+          <div class="form-grid">
+            <div class="field">
+              <label for="date">Datum des Events</label>
+              <input id="date" name="event_datum" type="date" required />
+            </div>
+
+            <div class="field">
+              <label for="time">Uhrzeit des Events</label>
+              <input id="time" name="event_uhrzeit" type="time" required />
+            </div>
+
+            <div class="field">
+              <label for="place">Ort des Events</label>
+              <input id="place" name="event_ort" type="text" placeholder="z. B. Saarbrücken" required />
+            </div>
+
+            <div class="field">
+              <label for="occasion">Anlass des Events</label>
+              <input id="occasion" name="event_anlass" type="text" placeholder="z. B. Firmenfeier" required />
+            </div>
+
+            <div class="field">
+              <label for="people">Personenzahl</label>
+              <input id="people" name="personenzahl" type="number" min="1" max="200" placeholder="z. B. 25" required />
+            </div>
+
+            <div class="field">
+              <label for="email">E-Mail</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Telefon (optional)</label>
+              <input id="phone" name="telefon" type="tel" autocomplete="tel" placeholder="+49 ..." />
+            </div>
+
+            <div class="field field-full">
+              <label for="message">Deine Nachricht an uns</label>
+              <textarea id="message" name="nachricht" rows="6" placeholder="Wünsche, Besonderheiten, ggf. Allergien, bevorzugte Variation ..." required></textarea>
+            </div>
+
+            <div class="field field-full">
+              <button class="btn btn-primary" type="submit">Anfrage per E-Mail senden</button>
+              <p class="small muted">Beim Absenden öffnet sich dein E-Mail-Programm mit vorbefüllter Nachricht.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="small muted">© <span id="year"></span> Grazing Tables Saar</div>
+      <div class="footer-links">
+        <a href="kontakt.html">Anfrage</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+      <a class="icon-link" href="https://www.instagram.com/grazing_tables_saar/" target="_blank" rel="noopener" aria-label="Instagram öffnen">
+        <img src="assets/img/insta.svg" alt="" />
+      </a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/mailto-form.js" defer></script>
+</body>
+</html>
