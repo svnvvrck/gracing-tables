@@ -783,3 +783,9 @@ input:focus, textarea:focus{
     grid-template-columns: 1fr;
   }
 }
+/* === Mobile Header: Markenname ausblenden =============================== */
+@media (max-width: 760px){
+  .brand-name{
+    display: none;
+  }
+}
