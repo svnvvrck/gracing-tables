@@ -202,6 +202,11 @@ a:hover{
 
 /* === Sections ============================================================= */
 .section{ padding: 1.5rem 0; }
+.home-hero-center{ text-align: center; }
+.home-hero-logo{ width: 512px; margin: 0 auto 1.2rem; }
+.home-hero-lead{ max-width: 620px; margin: 0.5rem auto 0; }
+.cta-row-center{ justify-content: center; }
+.home-hero-media-tight{ padding-top: 0; }
 
 /* === Typography =========================================================== */
 .eyebrow{
