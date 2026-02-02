@@ -762,7 +762,7 @@ input:focus, textarea:focus{
   }
 }
 
-@media (max-width: 760px){
+@media (max-width: 920px){
   /* Mobile Header: Markenname ausblenden */
   .brand-name{ display: none; }
 
@@ -776,25 +776,24 @@ input:focus, textarea:focus{
     padding: 0;
     border-radius: 14px;
     display: inline-flex;
+    flex-direction: column;      /* <<< WICHTIG */
     align-items: center;
     justify-content: center;
+    gap: 5px;                    /* Abstand zwischen Linien */
     background: rgba(255,255,255,0.65);
     border: 1px solid var(--line);
   }
 
+  /* Linien */
   .nav-toggle span{
     display: block;
-    width: 18px;          /* etwas kürzer als vorher */
+    width: 18px;
     height: 2px;
     background: rgba(47,42,35,0.85);
     border-radius: 2px;
-    margin: 0;            /* kein extra margin */
   }
 
-  .nav-toggle span + span{
-    margin-top: 5px;
-  }
-  
+  /* nur 2 Linien anzeigen */
   .nav-toggle span:nth-child(3){
     display: none;
   }
