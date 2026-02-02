@@ -788,4 +788,33 @@ input:focus, textarea:focus{
   .brand-name{
     display: none;
   }
+  .header-inner{
+    align-items: center;
+  }
+
+  /* Navigation nach ganz rechts schieben */
+  .nav{
+    margin-left: auto;
+  }
+
+  /* Burger anzeigen */
+  .nav-toggle{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Instagram + Burger enger zusammen */
+  .header-actions{
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+  }
+
+  .nav-toggle{
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.65);
+  }
 }
