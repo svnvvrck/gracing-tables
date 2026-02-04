@@ -153,11 +153,10 @@
   if (!messageEl) return;
 
   // Optional: Personenfeld nutzen, falls vorhanden
-  const personsEl = document.getElementById("persons");
+  const personsEl = document.getElementById("people");
   const personsFromUrl = params.get("personen"); // optional ?personen=20
   if (personsEl && personsFromUrl && !personsEl.value) personsEl.value = personsFromUrl;
 
-  const personsValue = personsEl?.value?.trim() || "___";
   const preis = params.get("preis"); // optional
   const preisText = preis ? ` (Preis: ${preis} € p. P.)` : "";
 
