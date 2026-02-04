@@ -4,7 +4,6 @@
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (!form.reportValidity()) return;
 
     const data = new FormData(form);
     const subject = "Anfrage Grazing Table – Grazing Tables Saar";
