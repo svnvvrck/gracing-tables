@@ -173,3 +173,19 @@ Vielen Dank und viele Grüße
 `;
   }
 })();
+
+// Kontaktformular: Status nach Absenden
+(() => {
+  const status = document.getElementById("formStatus");
+  if (!status) return;
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("sent") === "1") {
+    status.textContent = "Danke! Deine Anfrage wurde gesendet.";
+  }
+})();
+
+// Kontaktformular: Timestamp setzen (Spam-Check)
+(() => {
+  const ts = document.getElementById("form_ts");
+  if (ts) ts.value = String(Math.floor(Date.now() / 1000));
+})();

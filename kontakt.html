@@ -47,11 +47,14 @@
           Sende uns kurz die Eckdaten – wir melden uns mit einem passenden Vorschlag zurück.
           E-Mail: <a class="underline" href="mailto:info@grazing-tables-saar.de">info@grazing-tables-saar.de</a>
         </p>
+        <p class="small muted" id="formStatus" aria-live="polite"></p>
       </header>
 
       <div class="contact-grid">
-        <form id="anfrageForm" class="form contact-card reveal">
+        <form id="anfrageForm" class="form contact-card reveal" method="post" action="send.php" novalidate>
           <div class="form-grid">
+            <input type="text" name="website" value="" autocomplete="off" tabindex="-1" style="display:none;">
+            <input type="hidden" name="form_ts" id="form_ts">
             <div class="field">
               <label for="date">Datum des Events</label>
               <input id="date" name="event_datum" type="date" required />
@@ -94,7 +97,7 @@
 
             <div class="field field-full">
               <button class="btn btn-primary" type="submit">Anfrage per E-Mail senden</button>
-              <p class="small muted">Beim Absenden öffnet sich dein E-Mail-Programm mit vorbefüllter Nachricht.</p>
+              <p class="small muted">Wir senden deine Anfrage direkt per E-Mail.</p>
             </div>
           </div>
         </form>
@@ -117,6 +120,5 @@
   </footer>
 
   <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/mailto-form.js" defer></script>
 </body>
 </html>
