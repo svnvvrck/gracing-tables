@@ -19,7 +19,7 @@
       </a>
 
       <nav class="nav" aria-label="Hauptnavigation">
-        <button class="nav-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false">
+        <button class="nav-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navList">
           <span></span><span></span><span></span>
         </button>
 
@@ -32,7 +32,7 @@
       </nav>
 
       <div class="header-actions">
-        <a class="icon-link" href="https://www.instagram.com/grazing_tables_saar/" target="_blank" rel="noopener" aria-label="Instagram öffnen">
+        <a class="icon-link" href="https://www.instagram.com/grazing_tables_saar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram öffnen">
           <img src="assets/img/insta.svg" alt="" />
         </a>
       </div>
@@ -53,8 +53,22 @@
       <div class="contact-grid">
         <form id="anfrageForm" class="form contact-card reveal" method="post" action="send.php" novalidate>
           <div class="form-grid">
-            <input type="text" name="website" value="" autocomplete="off" tabindex="-1" style="display:none;">
-            <input type="hidden" name="form_ts" id="form_ts">
+
+            <!-- Honeypot (unsichtbar via CSS) -->
+            <div class="hp-wrap" aria-hidden="true">
+              <label for="hp_website">Website</label>
+              <input id="hp_website" type="text" name="website" value="" autocomplete="off" tabindex="-1" />
+            </div>
+
+            <!-- Server-side Mindestzeit (wird per JS gesetzt) -->
+            <input type="hidden" name="form_ts" id="form_ts" value="">
+            <script>
+              (function () {
+                var el = document.getElementById('form_ts');
+                if (el) el.value = Math.floor(Date.now() / 1000);
+              })();
+            </script>
+
             <div class="field">
               <label for="date">Datum des Events</label>
               <input id="date" name="event_datum" type="date" required />
@@ -67,38 +81,39 @@
 
             <div class="field">
               <label for="place">Ort des Events</label>
-              <input id="place" name="event_ort" type="text" placeholder="z. B. Saarbrücken" required />
+              <input id="place" name="event_ort" type="text" placeholder="z. B. Saarbrücken" required maxlength="100" />
             </div>
 
             <div class="field">
               <label for="occasion">Anlass des Events</label>
-              <input id="occasion" name="event_anlass" type="text" placeholder="z. B. Firmenfeier" required />
+              <input id="occasion" name="event_anlass" type="text" placeholder="z. B. Firmenfeier" required maxlength="100" />
             </div>
 
             <div class="field">
               <label for="people">Personenzahl</label>
-              <input id="people" name="personenzahl" type="number" min="1" max="50" placeholder="z. B. 25" required />
+              <input id="people" name="personenzahl" type="number" min="1" max="50" step="1" inputmode="numeric" placeholder="z. B. 25" required />
             </div>
 
             <div class="field">
               <label for="email">E-Mail</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
+              <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" />
             </div>
 
             <div class="field">
               <label for="phone">Telefon (optional)</label>
-              <input id="phone" name="telefon" type="tel" autocomplete="tel" placeholder="+49 ..." />
+              <input id="phone" name="telefon" type="tel" autocomplete="tel" placeholder="+49 ..." maxlength="50" />
             </div>
 
             <div class="field field-full">
               <label for="message">Deine Nachricht an uns</label>
-              <textarea id="message" name="nachricht" rows="6" placeholder="Wünsche, Besonderheiten, ggf. Allergien, bevorzugte Variation ..." required></textarea>
+              <textarea id="message" name="nachricht" rows="6" placeholder="Wünsche, Besonderheiten, ggf. Allergien, bevorzugte Variation ..." required maxlength="2000"></textarea>
             </div>
 
             <div class="field field-full">
-              <button class="btn btn-primary" type="submit">Anfrage per E-Mail senden</button>
-              <p class="small muted">Wir senden deine Anfrage direkt per E-Mail.</p>
+              <button class="btn btn-primary" type="submit" id="submitBtn">Anfrage per E-Mail senden</button>
+              <p class="small muted">Wir senden deine Anfrage direkt per E-Mail. Falls das Formular nicht funktioniert: <a class="underline" href="mailto:info@grazing-tables-saar.de">info@grazing-tables-saar.de</a></p>
             </div>
+
           </div>
         </form>
       </div>
@@ -113,12 +128,24 @@
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
       </div>
-      <a class="icon-link" href="https://www.instagram.com/grazing_tables_saar/" target="_blank" rel="noopener" aria-label="Instagram öffnen">
+      <a class="icon-link" href="https://www.instagram.com/grazing_tables_saar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram öffnen">
         <img src="assets/img/insta.svg" alt="" />
       </a>
     </div>
   </footer>
 
   <script src="assets/js/main.js" defer></script>
+
+  <!-- Minimal-CSS für Honeypot, falls du es nicht in styles.css pflegst -->
+  <style>
+    .hp-wrap {
+      position: absolute !important;
+      left: -10000px !important;
+      top: auto !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+    }
+  </style>
 </body>
 </html>
