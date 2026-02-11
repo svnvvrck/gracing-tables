@@ -744,6 +744,8 @@ input:focus, textarea:focus{
   background: linear-gradient(90deg, rgba(251,247,240,0), rgba(251,247,240,1));
 }
 
+.hp-wrap { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+
 /* === Responsive ========================================================== */
 @media (max-width: 980px){
   .hero-grid{ grid-template-columns: 1fr; }

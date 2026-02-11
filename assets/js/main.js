@@ -173,3 +173,23 @@ Vielen Dank und viele Grüße
 `;
   }
 })();
+
+// Kontaktformular: Erfolgsmeldung anzeigen oder Formular anzeigen
+(() => {
+  const params = new URLSearchParams(window.location.search);
+  const successEl = document.getElementById("successMessage");
+  const formContainer = document.getElementById("formContainer");
+  const sectionHeader = document.querySelector(".section-header");
+
+  if (params.get("sent") === "1" && successEl && formContainer) {
+    formContainer.style.display = "none";
+    if (sectionHeader) sectionHeader.style.display = "none";
+    successEl.style.display = "";
+  }
+})();
+
+// Kontaktformular: Timestamp setzen (Spam-Check)
+(() => {
+  const ts = document.getElementById("form_ts");
+  if (ts) ts.value = String(Math.floor(Date.now() / 1000));
+})();
