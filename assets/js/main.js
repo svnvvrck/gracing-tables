@@ -174,13 +174,17 @@ Vielen Dank und viele Grüße
   }
 })();
 
-// Kontaktformular: Status nach Absenden
+// Kontaktformular: Erfolgsmeldung anzeigen oder Formular anzeigen
 (() => {
-  const status = document.getElementById("formStatus");
-  if (!status) return;
   const params = new URLSearchParams(window.location.search);
-  if (params.get("sent") === "1") {
-    status.textContent = "Danke! Deine Anfrage wurde gesendet.";
+  const successEl = document.getElementById("successMessage");
+  const formContainer = document.getElementById("formContainer");
+  const sectionHeader = document.querySelector(".section-header");
+
+  if (params.get("sent") === "1" && successEl && formContainer) {
+    formContainer.style.display = "none";
+    if (sectionHeader) sectionHeader.style.display = "none";
+    successEl.style.display = "";
   }
 })();
 

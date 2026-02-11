@@ -50,7 +50,22 @@
         <p class="small muted" id="formStatus" aria-live="polite"></p>
       </header>
 
-      <div class="contact-grid">
+      <!-- Erfolgsmeldung (wird per JS eingeblendet wenn ?sent=1) -->
+      <div id="successMessage" class="contact-grid" style="display:none;">
+        <div class="contact-card" style="text-align:center; padding:2.5rem 2rem;">
+          <h2 style="margin-bottom:0.5rem;">Vielen Dank!</h2>
+          <p class="muted" style="margin-bottom:1.5rem;">
+            Deine Anfrage wurde erfolgreich gesendet.<br>
+            Wir melden uns schnellstmöglich bei dir zurück.
+          </p>
+          <div class="cta-row" style="justify-content:center;">
+            <a class="btn btn-primary" href="index.html">Zur Startseite</a>
+            <a class="btn btn-ghost" href="angebot.html">Angebot entdecken</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-grid" id="formContainer">
         <form id="anfrageForm" class="form contact-card reveal" method="post" action="send.php" novalidate>
           <div class="form-grid">
 
@@ -60,14 +75,8 @@
               <input id="hp_website" type="text" name="website" value="" autocomplete="off" tabindex="-1" />
             </div>
 
-            <!-- Server-side Mindestzeit (wird per JS gesetzt) -->
+            <!-- Mindestzeit (wird per JS in main.js gesetzt) -->
             <input type="hidden" name="form_ts" id="form_ts" value="">
-            <script>
-              (function () {
-                var el = document.getElementById('form_ts');
-                if (el) el.value = Math.floor(Date.now() / 1000);
-              })();
-            </script>
 
             <div class="field">
               <label for="date">Datum des Events</label>
@@ -135,17 +144,5 @@
   </footer>
 
   <script src="assets/js/main.js" defer></script>
-
-  <!-- Minimal-CSS für Honeypot, falls du es nicht in styles.css pflegst -->
-  <style>
-    .hp-wrap {
-      position: absolute !important;
-      left: -10000px !important;
-      top: auto !important;
-      width: 1px !important;
-      height: 1px !important;
-      overflow: hidden !important;
-    }
-  </style>
 </body>
 </html>

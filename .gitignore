@@ -1,0 +1,12 @@
+# SMTP credentials
+config/smtp-config.php
+
+# Error logs
+mail-error.log
+
+# PHPMailer (can be re-downloaded)
+phpmailer/
+
+# OS files
+.DS_Store
+Thumbs.db
